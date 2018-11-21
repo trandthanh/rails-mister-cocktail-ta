@@ -13,13 +13,8 @@
   </head>
 
   <body>
-    <nav>
-      <% if current_page?(root_path)  %>
-        <%= link_to new_cocktail_path do %>
-          <div class="btn btn-primary">Add a cocktail</div>
-        <% end %>
-      <% end %>
-    </nav>
+    <%= render 'shared/navbar' %>
+
     <%= yield %>
 
     <%= javascript_include_tag "application" %> <!-- from app/assets/javascripts/application.js -->

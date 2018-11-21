@@ -1,6 +1,11 @@
 class CocktailsController < ApplicationController
   def index
-    @cocktails = Cocktail.all
+    if params[:query].present?
+      @query = params[:query]
+      @cocktails = Cocktail.joins(:doses).joins(:ingredients).where("ingredients.name ILIKE '%#{params[:query]}%'")
+    else
+      @cocktails = Cocktail.all
+    end
   end
 
   def new

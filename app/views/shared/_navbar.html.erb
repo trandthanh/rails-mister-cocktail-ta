@@ -1,0 +1,18 @@
+<div class="navbar-mr-cocktail">
+  <div class="navbar-mr-cocktail-left">
+    <%= image_tag "logo.png", alt: "Mister Cocktail", class: "logo" %>
+  </div>
+
+  <div class="navbar-mr-cocktail-right">
+    <%= link_to new_cocktail_path do %>
+      <div class="btn btn-primary">Add a cocktail</div>
+    <% end %>
+    <% if current_page?(root_path)  %>
+      <form class="form-inline">
+        <input id="search-typed-text" class="form-control" name="query" type="search" placeholder="Search" aria-label="Search" value="<%= params[:query] %>">
+        <button class="btn btn-danger" type="submit">Search</button>
+      </form>
+    <% end %>
+  </div>
+</div>
+
