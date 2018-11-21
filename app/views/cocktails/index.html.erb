@@ -5,7 +5,7 @@
 <div class="wrapper-mr-cocktail">
   <div class="row">
       <% @cocktails.each do |c| %>
-        <div data-aos="zoom-in" data-aos-duration="1000" class="col-xs-3 card-mr-cocktail">
+        <div data-aos="zoom-in" data-aos-duration="1000" class="col-xs-3 card-mr-cocktail" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path c.photo, height: 300, width: 400, crop: :fill %>')">
           <%= link_to cocktail_path(c) do %>
             <%= c.name %>
           <% end %>
