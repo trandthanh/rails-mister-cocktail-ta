@@ -15,3 +15,8 @@ import '../components/select2';
 
 import { loadDynamicBannerText } from '../components/banner';
 loadDynamicBannerText();
+
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();

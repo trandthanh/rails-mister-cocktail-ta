@@ -1,12 +1,20 @@
-<h1>Our banging cocktails</h1>
+<div class="banner">
+  <h1>Our banging cocktails</h1>
+</div>
 
-<% @cocktails.each do |c| %>
-  <%= link_to cocktail_path(c) do %>
-    <%= c.name %>
-  <% end %>
+<div class="wrapper-mr-cocktail">
+  <div class="row">
+      <% @cocktails.each do |c| %>
+        <div data-aos="zoom-in" data-aos-duration="1000" class="col-xs-3 card-mr-cocktail">
+          <%= link_to cocktail_path(c) do %>
+            <%= c.name %>
+          <% end %>
 
-  <% c.doses.each do |d| %>
-    <%= d.description %>
-    <%= d.ingredient.name %>
-  <% end %>
-<% end %>
+          <% c.doses.each do |d| %>
+            <%= d.description %>
+            <%= d.ingredient.name %>
+          <% end %>
+        </div>
+      <% end %>
+  </div>
+</div>
