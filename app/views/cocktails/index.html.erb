@@ -1,0 +1,12 @@
+<h1>Our banging cocktails</h1>
+
+<% @cocktails.each do |c| %>
+  <%= link_to cocktail_path(c) do %>
+    <%= c.name %>
+  <% end %>
+
+  <% c.doses.each do |d| %>
+    <%= d.description %>
+    <%= d.ingredient.name %>
+  <% end %>
+<% end %>

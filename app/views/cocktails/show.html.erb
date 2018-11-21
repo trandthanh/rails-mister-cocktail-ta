@@ -1,0 +1,29 @@
+<h1><%= @cocktail.name %></h1>
+
+<% @cocktail.doses.each do |d| %>
+  <p><%= d.description %> of <%= d.ingredient.name %></p>
+  <%= link_to 'delete', destroy_dose_path(d), method: :delete, data: { confirm: "Are you sure?"}  %>
+<% end %>
+
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.input :description %>
+  <%= f.association :ingredient, collection: Ingredient.all, class: 'select2' %>
+
+  <%= f.submit "Add dose" %>
+<% end %>
+
+<h1>Reviews</h1>
+
+<%= simple_form_for [@cocktail, @review] do |f| %>
+  <%= f.input :content %>
+  <%= f.input :rating, collection: [1, 2, 3, 4, 5] %>
+
+  <%= f.submit "Add review" %>
+<% end %>
+
+<% @cocktail.reviews.each do |r| %>
+  <%= r.content %>
+  <%= r.rating %>
+<% end %>
+
+<%#= link_to "Add a dose", new_cocktail_dose_path(@cocktail) %>
